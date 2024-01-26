@@ -1,25 +1,33 @@
-package app;
+package fct;
 
 import java.io.IOException;
 
-import app.app.App;
+import fct.app.App;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import fct.Modelo.Usuario;
 
 public class AppController {
-	public static final String BIENVENIDA = "/app/guiLogin/Bienvenida/bienvenida.fxml";
-	public static final String INICIO = "/app/guiLogin/Login/login.fxml";
-	public static final String COMBOBOX = "/app/guiLogin/Pantallas/ComboBox.fxml";
-	public static final String DATEPICKER = "/app/guiLogin/Pantallas/DatePicker.fxml";
-	public static final String COLORPICKER = "/app/guiLogin/Pantallas/ColorPicker.fxml";
-	public static final String SLIDER = "/app/guiLogin/Pantallas/Slider.fxml";
-	public static final String WEBVIEW = "/app/guiLogin/Pantallas/WebView.fxml";
-	public static final String HTMLEDITOR = "/app/guiLogin/Pantallas/HtmlEditor.fxml";
-	
+	public static final String BIENVENIDA = "/fct/Pantallas/bienvenida.fxml";
+	public static final String INICIARSESION = "/fct/Pantallas/iniciarSesion.fxml";
+	public static final String CONSULTAWEB = "/fct/Pantallas/consultaWeb.fxml";
+	public static final String PREGUNTAS = "/fct/Pantallas/preguntas.fxml";
+	public static final String REGISTRO = "/fct/Pantallas/registro.fxml";
+	public static final String WRITING = "/fct/Pantallas/writing.fxml";
 
 	private static Stage stage;
+
+	protected Usuario usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public AppController() {
 	}
@@ -58,5 +66,4 @@ public class AppController {
 		}
 
 	}
-
 }

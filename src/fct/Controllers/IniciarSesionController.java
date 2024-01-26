@@ -1,8 +1,10 @@
-package fct.Service;
+package fct.Controllers;
 
 import java.sql.SQLException;
 
 import fct.AppController;
+import fct.Service.UsuarioException;
+import fct.Service.UsuarioService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
