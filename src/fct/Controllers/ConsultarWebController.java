@@ -24,6 +24,6 @@ public class ConsultarWebController extends AppController {
 		Usuario usuario = getUsuario();
 		WebEngine webEngine = web.getEngine();
 		webEngine.load("https://learnenglish.britishcouncil.org/skills/listening/" + usuario.getNivel() + "-"
-				+ comboBox.getValue());
+				+ comboBox.getValue().toLowerCase());
 	}
 }
