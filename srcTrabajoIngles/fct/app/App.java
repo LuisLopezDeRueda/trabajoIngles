@@ -11,7 +11,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		AppController app = new AppController(primaryStage);
-		app.cambiarVista(AppController.INICIO);
+		app.cambiarVista(AppController.INICIARSESION);
 		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.show();
 	}
