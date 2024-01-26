@@ -8,24 +8,19 @@ import fct.Modelo.Usuario;
 
 public class UsuarioService {
 
-	public Usuario iniciarSesion(String usuario, String password) throws UsuarioException {
+	public Usuario iniciarSesion(String usuario, String password) throws UsuarioException, SQLException {
 
 		Connection conn = null;
 		UsuarioDao csu = new UsuarioDao();
 
-		try {
-			conn = new OpenConnectionceufct().getConection();
-			Usuario user = new Usuario();
-			user = csu.consultarUsuario(conn, usuario);
-			if (user != null && user.getPassword().equals(password)) {
-				return user;
-			} else {
-				throw new UsuarioException();
-			}
-		} catch (SQLException e) {
-			System.out.println("Problema con comprobar usuario " + e);
+		conn = new OpenConnectionceufct().getConection();
+		Usuario user = new Usuario();
+		user = csu.consultarUsuario(conn, usuario);
+		if (user != null && user.getPassword().equals(password)) {
+			return user;
+		} else {
+			throw new UsuarioException();
 		}
-		return null;
 
 	}
 
@@ -36,7 +31,7 @@ public class UsuarioService {
 
 		try {
 			conn = new OpenConnectionceufct().getConection();
-			Usuario user = csu.consultarUsuario(conn, usuario.getEmail());
+			Usuario user = csu.consultarUsuario(conn, usuario.getNombre());
 			if (user == null) {
 
 			} else {

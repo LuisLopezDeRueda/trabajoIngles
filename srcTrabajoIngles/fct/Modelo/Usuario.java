@@ -3,7 +3,6 @@ package fct.Modelo;
 public class Usuario {
 
 	private Long id_usuario;
-	private String email;
 	private String password;
 	private String nombre;
 	private String apellidos;
@@ -24,14 +23,6 @@ public class Usuario {
 
 	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPassword() {
@@ -68,7 +59,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ", email=" + email + ", password=" + password + ", nombre="
+		return "Usuario [id_usuario=" + id_usuario + ", password=" + password + ", nombre="
 				+ nombre + ", apellidos=" + apellidos +  ", nivel=" + nivel + "]";
 	}
 

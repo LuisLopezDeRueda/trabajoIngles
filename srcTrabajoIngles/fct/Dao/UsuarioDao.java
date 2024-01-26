@@ -1,6 +1,5 @@
 package fct.Dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import fct.Service.UsuarioException;
 
 public class UsuarioDao {
 
-	public Usuario consultarUsuario(Connection conn, String email)  throws SQLException{
+	public Usuario consultarUsuario(Connection conn, String nombre) throws SQLException {
 
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -20,23 +19,24 @@ public class UsuarioDao {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = "SELECT * FROM USUARIOS WHERE '" + email + "' LIKE EMAIL";
+			String sql = "SELECT * FROM alumnos WHERE '" + nombre + "' LIKE nombre";
 			rs = stmt.executeQuery(sql);
-			
+
 			if (rs.next()) {
 				usuario.setId_usuario(rs.getLong("id_usuario"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setPassword(rs.getString("password"));
 				usuario.setNombre(rs.getString("nombre"));
 				usuario.setApellidos(rs.getString("apellidos"));
 				usuario.setNivel(rs.getString("nivel"));
+				usuario.setEdad(rs.getInt("edad"));
+				usuario.setPassword(rs.getString("password"));
+
 				return usuario;
-			}else {
+			} else {
 				return null;
 			}
 
-		}finally {
-			if(stmt != null) {
+		} finally {
+			if (stmt != null) {
 				stmt.close();
 			}
 		}
@@ -47,14 +47,14 @@ public class UsuarioDao {
 		ResultSet rs = null;
 		try {
 			stmt = conn.prepareStatement(
-					"INSERT INTO USUARIOS(email,password,nombre,apellidos,ciclo,nivel) VALUES (?,?,?,?,?,?)",
+					"INSERT INTO alumnos(nombre,apellidos,nivel,edad,contraseña) VALUES (?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 
-			stmt.setString(1, user.getEmail());
-			stmt.setString(2, user.getPassword());
-			stmt.setString(3, user.getNombre());
-			stmt.setString(4, user.getApellidos());
-			stmt.setString(6, user.getNivel());
+			stmt.setString(1, user.getNombre());
+			stmt.setString(2, user.getApellidos());
+			stmt.setString(3, user.getNivel());
+			stmt.setInt(4, user.getEdad());
+			stmt.setString(5, user.getPassword());
 
 			stmt.execute();
 			rs = stmt.getGeneratedKeys();

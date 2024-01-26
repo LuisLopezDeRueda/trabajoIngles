@@ -7,12 +7,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import fct.Modelo.Usuario;
 
 public class AppController {
 	public static final String BIENVENIDA = "/fct/Pantallas/bienvenida.fxml";
-	public static final String INICIO = "/fct/Pantallas/inicion.fxml";
-	
+	public static final String INICIARSESION = "/fct/Pantallas/inicion.fxml";
+	public static final String CONSULTAWEB = "/fct/Pantallas/consultaWeb.fxml";
+	public static final String PREGUNTAS = "/fct/Pantallas/preguntas.fxml";
+	public static final String REGISTRO = "/fct/Pantallas/registro.fxml";
+	public static final String WRITING = "/fct/Pantallas/writing.fxml";
+
 	private static Stage stage;
+
+	protected Usuario usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public AppController() {
 	}
